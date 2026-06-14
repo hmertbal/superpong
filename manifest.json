@@ -1,0 +1,10 @@
+{
+  "short_name": "Super Pong",
+  "name": "Super Pong: Overdrive Edition",
+  "icons": [],
+  "start_url": "index.html",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "display": "standalone",
+  "orientation": "landscape"
+}
