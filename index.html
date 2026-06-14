@@ -199,7 +199,22 @@
         mobileSuperBtn.addEventListener("touchstart", (e) => { e.preventDefault(); mobileSuperPressed = true; });
         mobileSuperBtn.addEventListener("touchend", () => { mobileSuperPressed = false; });
 
-        function startGame() { gameState = "PLAYING"; isPaused = false; mobilePauseBtn.textContent = "⏸"; mobilePauseBtn.style.display = "flex"; }
+	function startGame() {
+    		gameState = "PLAYING";
+    		isPaused = false;
+		mobilePauseBtn.textContent = "⏸";
+    		mobilePauseBtn.style.display = "flex";
+
+		// --- THE FULLSCREEN TRICK: Request true browser breakout on user touch ---
+    		if (canvas.requestFullscreen) {
+        	canvas.requestFullscreen();
+    		} else if (canvas.webkitRequestFullscreen) { /* Safari / iOS Support */
+        	canvas.webkitRequestFullscreen();
+    		} else if (canvas.msRequestFullscreen) { /* IE/Edge Support */
+        	canvas.msRequestFullscreen();
+    		}
+	}
+
         function resetMatch() { playerScore = 0; aiScore = 0; playerCharge = 0; aiCharge = 0; resetBall("player"); }
 
         function resetBall(winner) {
